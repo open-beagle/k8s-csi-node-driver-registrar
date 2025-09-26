@@ -12,6 +12,7 @@ LDFLAGS="-X main.version=${BUILD_VERSION}"
 LDFLAGS="${LDFLAGS} -extldflags '-static'"
 
 mkdir -p bin
+git config --global --add safe.directory $PWD
 
 export GOARCH=amd64
 go build -a -mod=vendor -ldflags "${LDFLAGS}" -o ./bin/csi-node-driver-registrar-amd64 ./cmd/csi-node-driver-registrar
