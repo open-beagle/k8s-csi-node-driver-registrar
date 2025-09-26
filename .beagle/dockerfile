@@ -1,0 +1,15 @@
+ARG BASE
+
+FROM ${BASE}
+
+ARG AUTHOR
+ARG VERSION
+
+LABEL maintainer=${AUTHOR} version=${VERSION}
+
+ARG TARGETOS
+ARG TARGETARCH
+
+COPY ./bin/csi-node-driver-registrar-$TARGETARCH /csi-node-driver-registrar
+
+ENTRYPOINT ["/csi-node-driver-registrar"]
